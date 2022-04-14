@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Exit/Exit.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=6]
+radius = 0.5
+
+[node name="Exit" type="Area"]
+script = ExtResource( 1 )
+
+[node name="Light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.861779, 7.6146 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 10.0
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="." to="." method="_on_Exit_body_entered"]
